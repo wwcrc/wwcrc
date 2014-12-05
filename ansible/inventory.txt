@@ -1,0 +1,29 @@
+[master]
+master01
+master02
+
+[login]
+login01
+login02
+
+[compute]
+node[01:32]
+fatnode01
+
+[nfs]
+nfs01
+nfs02
+
+[lustre_mds]
+mds01 ansible_ssh_host=10.149.3.11
+mds02 ansible_ssh_host=10.149.3.12
+
+[lustre_oss]
+oss01 ansible_ssh_host=10.149.3.13
+oss02 ansible_ssh_host=10.149.3.14
+
+[lustre_mgmt]
+tms ansible_ssh_host=10.141.3.11
+
+[xfergw]
+xfergw ansible_ssh_host=10.149.3.99

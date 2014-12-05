@@ -1,0 +1,4 @@
+- ~/.ssh/id_rsa-wwcrc
+- Set ansible_ssh_pass in group_vars/all
+- `ANSIBLE_HOST_KEY_CHECKING=False ansible all -m ping`
+- `ansible-playbook site.yml`

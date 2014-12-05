@@ -1,0 +1,11 @@
+Host master01
+	HostName hn01.tcrc.gla.ac.uk
+	IdentityFile ~/.ssh/id_rsa-wwcrc
+	BatchMode yes
+
+Host *
+	ProxyCommand ssh -qi ~/.ssh/id_rsa-wwcrc -W %h:%p hn01.tcrc.gla.ac.uk
+	ServerAliveInterval 60
+	ControlMaster auto
+	ControlPath ~/.ssh/mux-%r@%h:%p
+	ControlPersist 8h
