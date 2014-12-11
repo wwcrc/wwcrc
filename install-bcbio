@@ -14,3 +14,6 @@ chmod 755 bcbio_nextgen_install.py
 	--sudo --isolate \
 	--tooldir "$INSTALL_ROOT/tools" \
 	--genomes GRCh37 --aligners bwa --aligners bowtie2
+bcbio_nextgen.py upgrade --tools --toolplus \
+	gatk=/path/to/gatk/GenomeAnalysisTK.jar
+bcbio_nextgen.py upgrade --tools --toolplus data
