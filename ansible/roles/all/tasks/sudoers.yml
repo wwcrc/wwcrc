@@ -1,0 +1,3 @@
+---
+- name: allow admins sudo access
+  copy: src=etc/sudoers.d/admins dest=/etc/sudoers.d/admins owner=root group=root mode=0644
