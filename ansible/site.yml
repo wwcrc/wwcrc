@@ -1,4 +1,10 @@
 ---
 - hosts: all
+  serial: 100
   roles:
     - all
+    - cluster
+
+- hosts: master
+  roles:
+    - master
