@@ -1,3 +1,6 @@
 ---
-- name: install common packages
-  yum: name=joe state=present
+- name: Packages
+  include: packages.yml
+
+- name: sudoers
+  include: sudoers.yml
