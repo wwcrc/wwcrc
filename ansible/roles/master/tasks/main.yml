@@ -1,0 +1,4 @@
+---
+- name: Firewall
+  hosts: master
+  include: firewall.yml

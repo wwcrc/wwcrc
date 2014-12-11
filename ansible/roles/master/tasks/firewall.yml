@@ -1,0 +1,15 @@
+---
+- name: Mosh comment
+  lineinfile:
+    dest: /etc/shorewall/rules
+    insertbefore: ^ACCEPT\s+net\s+fw\s+udp\s+60000:61000\s*$
+    line: "# -- Mosh"
+  notify: restart shorewall
+
+- name: Allow mosh
+  lineinfile:
+    dest: /etc/shorewall/rules
+    insertbefore: ^#\s*LAST\s+LINE
+    regexp: ^ACCEPT\s+net\s+fw\s+udp\s+60000:61000\s*$
+    line: ACCEPT net fw udp 60000:61000
+  notify: restart shorewall
