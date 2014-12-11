@@ -1,0 +1,4 @@
+---
+- name: Cluster packages
+  hosts: master:login:compute
+  include: packages.yml
