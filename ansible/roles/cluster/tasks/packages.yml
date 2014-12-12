@@ -5,6 +5,9 @@
 - name: run collectl
   service: name=collectl enabled=yes state=started
 
+- name: install docker
+  yum: name=docker-io state=present
+
 - name: install mosh
   yum: name=mosh state=present
 
