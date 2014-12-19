@@ -2,3 +2,7 @@
 - name: Firewall
   hosts: master
   include: firewall.yml
+
+- name: Packages
+  hosts: master
+  include: packages.yml
