@@ -3,6 +3,10 @@
   serial: 100
   roles:
     - all
+
+- hosts: master:login:compute
+  serial: 100
+  roles:
     - cluster
 
 - hosts: master
