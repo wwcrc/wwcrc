@@ -6,3 +6,7 @@
 - name: Packages
   hosts: master
   include: packages.yml
+
+- name: Proxy
+  hosts: master
+  include: proxy.yml

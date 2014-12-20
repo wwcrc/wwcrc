@@ -1,0 +1,13 @@
+---
+- name: install squid
+  yum: name=squid state=present
+
+# FIXME: add:
+#   acl gla_vpn src 130.209.35.0/24
+#   http_access allow gla_vpn
+# and comment out:
+#   http_access allow localnet
+# in squid.conf.
+
+- name: start squid
+  service: name=squid state=started enabled=yes

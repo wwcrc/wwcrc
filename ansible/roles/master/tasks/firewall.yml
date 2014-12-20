@@ -13,3 +13,18 @@
     regexp: ^ACCEPT\s+net\s+fw\s+udp\s+60000:61000\s*$
     line: ACCEPT net fw udp 60000:61000
   notify: restart shorewall
+
+- name: Squid comment
+  lineinfile:
+    dest: /etc/shorewall/rules
+    insertbefore: ^ACCEPT\s+net:130.209.35.0/24\s+fw\s+tcp\s+3128\s*$
+    line: "# -- Squid"
+  notify: restart shorewall
+
+- name: Allow squid
+  lineinfile:
+    dest: /etc/shorewall/rules
+    insertbefore: ^#\s*LAST\s+LINE
+    regexp: ^ACCEPT\s+net\s+fw\s+tcp\s+3128\s*$
+    line: ACCEPT net:130.209.35.0/24 fw tcp 3128
+  notify: restart shorewall
