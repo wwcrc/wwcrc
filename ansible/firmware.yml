@@ -32,6 +32,14 @@
       when: "'{{ansible_product_name}}' == 'PowerEdge M420'"
       shell: "/root/firmware/M420_CPLD_Firmware_NN0NN_LN_1.0.6.BIN -q 2>&1 | grep -v ^prelink:"
 
+    - name: update m420 nic
+      when: "'{{ansible_product_name}}' == 'PowerEdge M420'"
+      shell: "/root/firmware/Network_Firmware_NF92Y_LN_7.10.18.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update m420 ib hba
+      when: "'{{ansible_product_name}}' == 'PowerEdge M420'"
+      shell: "/root/firmware/Network_Firmware_XC24K_LN_02.31.54.50.BIN -q 2>&1 | grep -v ^prelink:"
+
     - name: update m420 sas raid
       when: "'{{ansible_product_name}}' == 'PowerEdge M420'"
       shell: "/root/firmware/SAS-RAID_Firmware_32KD2_LN_20.13.0-0007_A08.BIN -q 2>&1 | grep -v ^prelink:"
@@ -62,6 +70,10 @@
       when: "'{{ansible_product_name}}' == 'PowerEdge R420'"
       shell: "/root/firmware/Network_Firmware_NF92Y_LN_7.10.18.BIN -q 2>&1 | grep -v ^prelink:"
 
+    - name: update r420 ib hba
+      when: "'{{ansible_product_name}}' == 'PowerEdge R420'"
+      shell: "/root/firmware/Network_Firmware_XC24K_LN_02.31.54.50.BIN -q 2>&1 | grep -v ^prelink:"
+
     - name: update r420 sas raid
       when: "'{{ansible_product_name}}' == 'PowerEdge R420'"
       shell: "/root/firmware/SAS-RAID_Firmware_V8010_LN_21.3.0-0009_A05.BIN -q 2>&1 | grep -v ^prelink:"
@@ -88,6 +100,14 @@
       when: "'{{ansible_product_name}}' == 'PowerEdge R620'"
       shell: "/root/firmware/Lifecycle-Controller_Application_C19M0_LN_1.4.2.12_A00.BIN -q 2>&1 | grep -v ^prelink:"
 
+    - name: update r620 ib nic
+      when: "'{{ansible_product_name}}' == 'PowerEdge R620'"
+      shell: "/root/firmware/Network_Firmware_NF92Y_LN_7.10.18.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r620 ib hba
+      when: "'{{ansible_product_name}}' == 'PowerEdge R620'"
+      shell: "/root/firmware/Network_Firmware_XC24K_LN_02.31.54.50.BIN -q 2>&1 | grep -v ^prelink:"
+
     - name: update r620 sas non-raid
       when: "'{{ansible_product_name}}' == 'PowerEdge R620'"
       shell: "/root/firmware/SAS-Non-RAID_Firmware_K161K_LN_07.03.06.00_A11.BIN -q 2>&1 | grep -v ^prelink:"
@@ -113,6 +133,10 @@
     - name: update r820 nic
       when: "'{{ansible_product_name}}' == 'PowerEdge R820'"
       shell: "/root/firmware/Network_Firmware_NF92Y_LN_7.10.18.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r820 ib hba
+      when: "'{{ansible_product_name}}' == 'PowerEdge R820'"
+      shell: "/root/firmware/Network_Firmware_XC24K_LN_02.31.54.50.BIN -q 2>&1 | grep -v ^prelink:"
 
     - name: update r820 lifecycle controller
       when: "'{{ansible_product_name}}' == 'PowerEdge R820'"
