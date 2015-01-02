@@ -15,15 +15,15 @@ nfs01
 nfs02
 
 [lustre_mds]
-mds01 ansible_ssh_host=10.149.3.11
-mds02 ansible_ssh_host=10.149.3.12
+mds01
+mds02
 
 [lustre_oss]
-oss01 ansible_ssh_host=10.149.3.13
-oss02 ansible_ssh_host=10.149.3.14
+oss01
+oss02
 
 [lustre_mgmt]
-tms ansible_ssh_host=10.141.3.11
+lustre-tms
 
-[xfergw]
-xfergw ansible_ssh_host=10.149.3.99
+[lustre_gw]
+lustre-gateway
