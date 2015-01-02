@@ -48,7 +48,7 @@
 
     - name: update r420 esm
       when: "'{{ansible_product_name}}' == 'PowerEdge R420'"
-      shell: "/root/firmware/ESM_Firmware_XH6FX_LN_1.57.57_A00.BIN -q 2>&1 | grep -v ^prelink:"
+      shell: "/root/firmware/ESM_Firmware_3F4WV_LN_1.66.65_A00.BIN -q 2>&1 | grep -v ^prelink:"
 
     - name: update r420 storage backplane
       when: "'{{ansible_product_name}}' == 'PowerEdge R420'"
