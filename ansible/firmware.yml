@@ -4,6 +4,9 @@
   sudo: true
 
   tasks:
+    - name: create /root/firmware
+      file: path=/root/firmware state=directory
+
     # http://www.dell.com/support/home/us/en/19/product-support/servicetag/DBNL212/drivers
     - name: copy m420 firmware
       when: "'{{ansible_product_name}}' == 'PowerEdge M420'"
