@@ -4,16 +4,20 @@ set -e
 
 INSTALL_ROOT="/cm/shared/apps/bcbio/$(date +%Y%m%d)-devel"
 
-yum -y install git python-argparse
+. /etc/profile.d/modules.sh
 module load gcc/4.8.2
+
 mkdir -p "$INSTALL_ROOT/"{tools,data}
 wget https://raw.github.com/chapmanb/bcbio-nextgen/master/scripts/bcbio_nextgen_install.py
 chmod 755 bcbio_nextgen_install.py
+
+yum -y install git python-argparse
 ./bcbio_nextgen_install.py \
 	"$INSTALL_ROOT/data" \
 	--sudo --isolate \
 	--tooldir "$INSTALL_ROOT/tools" \
 	--genomes GRCh37 --aligners bwa --aligners bowtie2
+
 bcbio_nextgen.py upgrade --tools --toolplus \
 	gatk=/path/to/gatk/GenomeAnalysisTK.jar
 bcbio_nextgen.py upgrade --tools --toolplus data
