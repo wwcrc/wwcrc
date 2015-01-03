@@ -18,6 +18,7 @@ yum -y install git python-argparse
 	--tooldir "$INSTALL_ROOT/tools" \
 	--genomes GRCh37 --aligners bwa --aligners bowtie2
 
+export PATH="$PATH:$INSTALL_ROOT/tools/bin"
 bcbio_nextgen.py upgrade --tools --toolplus \
 	gatk=/path/to/gatk/GenomeAnalysisTK.jar
 bcbio_nextgen.py upgrade --tools --toolplus data
