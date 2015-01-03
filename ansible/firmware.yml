@@ -7,6 +7,40 @@
     - name: create /root/firmware
       file: path=/root/firmware state=directory
 
+    # http://www.dell.com/support/home/us/en/19/product-support/servicetag/H1ML212/drivers
+    - name: copy r320 firmware
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      copy: src=/home/jwm/dell-firmware/r320/ dest=/root/firmware owner=root group=root mode=0755
+
+    - name: update r320 bios
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/BIOS_HMN36_LN_2.3.3.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r320 esm
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/ESM_Firmware_3F4WV_LN_1.66.65_A00.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r320 storage backplane
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/ -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r320 lifecycle controller
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/Lifecycle-Controller_Legacy_Application_TR4J7_LN_1.4.2.12_A00.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r320 nic
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/Network_Firmware_NF92Y_LN_7.10.18.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r320 sas raid
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/SAS-RAID_Firmware_V8010_LN_21.3.0-0009_A05.BIN -q 2>&1 | grep -v ^prelink:"
+
+    - name: update r320 sas non-raid
+      when: "'{{ansible_product_name}}' == 'PowerEdge R320'"
+      shell: "/root/firmware/SAS-Non-RAID_Firmware_K161K_LN_07.03.06.00_A11.BIN -q 2>&1 | grep -v ^prelink:"
+
+
     # http://www.dell.com/support/home/us/en/19/product-support/servicetag/DBNL212/drivers
     - name: copy m420 firmware
       when: "'{{ansible_product_name}}' == 'PowerEdge M420'"
