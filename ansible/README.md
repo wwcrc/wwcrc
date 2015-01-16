@@ -1,5 +1,4 @@
 - `yum install ansible`
-- ~/.ssh/id_rsa-wwcrc
 - Set `ansible_ssh_pass` in `group_vars/all` and `group_vars/lustre_mds`
 - `ANSIBLE_HOST_KEY_CHECKING=False ansible all -m ping`
 - `ansible-playbook site.yml`
