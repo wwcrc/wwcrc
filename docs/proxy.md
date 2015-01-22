@@ -1,3 +1,5 @@
+# Using to the Cluster Proxy Servers
+
 The clusters use several DNS domains and networks that are not reachable on
 the general Internet. For example, to reach the Terascala dashboard or the
 nodes' remote management controllers, you must proxy through one of the
