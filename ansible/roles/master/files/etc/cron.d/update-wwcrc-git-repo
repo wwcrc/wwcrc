@@ -1,0 +1,1 @@
+*/10 * * * * root /cm/local/apps/cluster-tools/bin/cmha status | grep -q 'Node Status: running in active mode' && cd /cm/shared/wwcrc.git && git pull -q

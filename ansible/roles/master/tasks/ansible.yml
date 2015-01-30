@@ -1,0 +1,10 @@
+---
+# This clone is referenced in the Cluster Manager finalize script for
+# applying our playbooks to freshly rebooted nodes.
+- name: update automation clone of wwcrc.git repo
+  copy:
+    src: etc/cron.d/update-wwcrc-git-repo
+    dest: /etc/cron.d/update-wwcrc-git-repo
+    owner: root
+    group: root
+    mode: 0644

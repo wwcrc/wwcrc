@@ -1,4 +1,8 @@
 ---
+- name: Ansible
+  hosts: master
+  include: ansible.yml
+
 - name: Firewall
   hosts: master
   include: firewall.yml
