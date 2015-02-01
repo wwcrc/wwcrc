@@ -8,10 +8,17 @@
 - name: install mosh
   yum: name=mosh state=present
 
-# Install R-java first, since this seems to avoid the 'R CMD javareconf'
-# hangs when we install R directly.
+# R-java's package scripts (`rpm -q --scripts R-java`) sometimes hang in
+# 'R CMD javareconf'. Kill it after a reasonable amount of time if it hasn't
+# finished; the package remains cleanly installed since the package script
+# ignores the return value.
 - name: install R-java
   yum: name=R-java state=present
+  async: 180
+  poll: 5
+
+- name: Kill straggling R-java package script
+  command: pkill Rcmd
 
 - name: install R
   yum: name=R state=present
