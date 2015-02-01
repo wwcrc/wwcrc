@@ -12,15 +12,12 @@
 # 'R CMD javareconf'. Kill it after a reasonable amount of time if it hasn't
 # finished; the package remains cleanly installed since the package script
 # ignores the return value.
-- name: install R-java
-  yum: name=R-java state=present
+- name: install R
+  yum: name=R state=present
   async: 180
   poll: 5
   ignore_errors: yes
 
 - name: Kill straggling R-java package script
-  command: pkill Rcmd
+  command: pkill java
   ignore_errors: yes
-
-- name: install R
-  yum: name=R state=present
