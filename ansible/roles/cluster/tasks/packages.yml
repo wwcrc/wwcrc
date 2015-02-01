@@ -8,5 +8,10 @@
 - name: install mosh
   yum: name=mosh state=present
 
+# Install R-java first, since this seems to avoid the 'R CMD javareconf'
+# hangs when we install R directly.
+- name: install R-java
+  yum: name=R-java state=present
+
 - name: install R
   yum: name=R state=present
