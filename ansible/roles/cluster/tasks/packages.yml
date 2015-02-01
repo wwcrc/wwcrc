@@ -14,7 +14,7 @@
 # ignores the return value.
 - name: install R
   yum: name=R state=present
-  async: 180
+  async: 360
   poll: 5
   ignore_errors: yes
 
