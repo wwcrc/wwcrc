@@ -16,6 +16,7 @@
   yum: name=R-java state=present
   async: 180
   poll: 5
+  ignore_errors: yes
 
 - name: Kill straggling R-java package script
   command: pkill Rcmd
