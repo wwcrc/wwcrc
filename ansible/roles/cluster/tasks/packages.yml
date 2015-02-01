@@ -19,6 +19,7 @@
 
 - name: Kill straggling R-java package script
   command: pkill Rcmd
+  ignore_errors: yes
 
 - name: install R
   yum: name=R state=present
