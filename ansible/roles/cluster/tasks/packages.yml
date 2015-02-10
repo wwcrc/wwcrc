@@ -21,3 +21,6 @@
 - name: Kill straggling R-java package script
   command: pkill java
   ignore_errors: yes
+
+- name: install bcbio dependency ruby-irb
+  yum: name=ruby-irb state=present
