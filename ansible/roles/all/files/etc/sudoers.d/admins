@@ -1,2 +1,3 @@
 jwm ALL=(ALL) NOPASSWD: ALL
 ohofmann ALL=(ALL) NOPASSWD: ALL
+%sudo ALL=(ALL) NOPASSWD: ALL
