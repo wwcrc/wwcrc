@@ -14,3 +14,7 @@
 - name: Proxy
   hosts: master
   include: proxy.yml
+
+- name: Backups
+  hosts: master
+  include: backups.yml

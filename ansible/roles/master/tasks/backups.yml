@@ -1,0 +1,27 @@
+---
+# XXX: how to interact with Dell's ldap/cmgui user management from ansible?
+# XXX: Hardcode current UID to avoid future permission issues, reasonable?
+- name: make sure backup user is present
+  user: name=backup state=present group=backup uid=1013
+
+- name: install snapshotter backup package
+  pip: name="snapshotter"
+
+- name: creating bin dir for backup user
+  file: /home/backup/bin state=directory owner=backup group=backup
+
+- name: add slurm script to launch backups from node(s) (/scratch mountpoint is not available from master)
+  copy:
+    src: etc/backup_scratch_cm_slurm.sh
+    dest: /home/backup/bin/backup_scratch_cm_slurm.sh
+    owner: root
+    group: root
+    mode: 0644
+
+- name: add snapshot backups on cron
+  copy:
+    src: etc/cron.d/backup_scratch_cm
+    dest: /etc/cron.d/backup_scratch_cm
+    owner: root
+    group: root
+    mode: 0644

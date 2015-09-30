@@ -1,3 +1,6 @@
 ---
 - name: install joe
   yum: name=joe state=present
+
+- name: install vim
+  yum: name=vim state=present
