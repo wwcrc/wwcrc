@@ -13,4 +13,4 @@
   notify: restart docker
 
 - name: start docker
-  service: name=docker state=started
+  service: name=docker state=started enabled=yes
