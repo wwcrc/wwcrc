@@ -3,13 +3,13 @@
   yum: name=docker-io state=present
 
 - name: add local docker group with consistent gid
-  group: name=docker_cluster gid=10000
+  group: name=docker gid=10000
 
 - name: use local docker group
   lineinfile:
     dest: /etc/sysconfig/docker
     regexp: ^other_args=
-    line: other_args="-G docker_cluster"
+    line: other_args="-G docker"
   notify: restart docker
 
 - name: start docker
