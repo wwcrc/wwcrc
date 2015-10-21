@@ -8,6 +8,9 @@
 - name: install mosh
   yum: name=mosh state=present
 
+- name: install inotify-watch and others
+  yum: name=inotify-tools state=latest
+
 # R-java's package scripts (`rpm -q --scripts R-java`) sometimes hang in
 # 'R CMD javareconf'. Kill it after a reasonable amount of time if it hasn't
 # finished; the package remains cleanly installed since the package script
